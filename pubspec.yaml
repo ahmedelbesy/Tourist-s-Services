@@ -1,0 +1,48 @@
+name: egytologia
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  get: ^3.24.0
+  carousel_slider: ^2.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+
+  assets:
+     - assets/images/
+     - assets/icons/
+     - assets/fonts/
+
+  fonts:
+    - family: Segoe.UI
+      fonts:
+        - asset: assets/fonts/Segoe.UI.Bold_DownloadSoftware.iR.ttf
+        - asset: assets/fonts/Segoe.UI.Semibold.Italic_DownloadSoftware.iR.ttf
+        - asset: assets/fonts/Segoe.UI.Semibold_DownloadSoftware.iR.ttf
+        - asset: assets/fonts/Segoe.UI_DownloadSoftware.iR.ttf
+
+    - family: brushscript
+      fonts:
+        - asset: assets/fonts/brush script mt kursiv.ttf
+        - asset: assets/fonts/BRUSHSCI.ttf
+          weight: 700
+
