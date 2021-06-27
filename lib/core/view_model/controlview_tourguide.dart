@@ -1,15 +1,15 @@
 
-import 'package:egytologia/view/auth/register_tour_guide_view.dart';
-import 'package:egytologia/view/chat_view.dart';
-import 'package:egytologia/view/home_view.dart';
-import 'package:egytologia/view/notifications_view.dart';
+
+import 'package:egytologia/features/chat/chat_view.dart';
+import 'package:egytologia/features/main/home_view.dart';
+import 'package:egytologia/features/notifications/notifications_view.dart';
 import 'package:egytologia/view/tour_guide/chats_view_tourguide.dart';
 import 'package:egytologia/view/tour_guide/home_view.dart';
 import 'package:egytologia/view/tour_guide/notification_view_tourguide.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class HomeViewModel_guide extends GetxController{
+
+class HomeViewModel_guide {
   int _navigatorValue=0;
   get navigatorValue =>_navigatorValue;
   Widget _currentScreen=HomeView_TourGuide();
@@ -32,6 +32,6 @@ class HomeViewModel_guide extends GetxController{
       }
 
     }
-    update();
+
   }
 }

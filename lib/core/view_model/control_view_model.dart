@@ -1,11 +1,11 @@
 
-import 'package:egytologia/view/chat_view.dart';
-import 'package:egytologia/view/home_view.dart';
-import 'package:egytologia/view/notifications_view.dart';
+import 'package:egytologia/features/chat/chat_view.dart';
+import 'package:egytologia/features/main/home_view.dart';
+import 'package:egytologia/features/notifications/notifications_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class HomeViewModel extends GetxController{
+
+class HomeViewModel {
   int _navigatorValue=0;
   get navigatorValue =>_navigatorValue;
   Widget _currentScreen=HomeView();
@@ -28,6 +28,6 @@ class HomeViewModel extends GetxController{
       }
 
     }
-    update();
+
   }
 }

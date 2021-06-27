@@ -1,11 +1,11 @@
-import 'package:egytologia/view/detalis_chat.dart';
-import 'package:egytologia/view/widgets/Custom_dropdown_Button.dart';
-import 'package:egytologia/view/widgets/custom_button.dart';
-import 'package:egytologia/view/widgets/custom_text.dart';
+import 'package:egytologia/features/chat/detalis_chat.dart';
+import 'package:egytologia/common_components/Custom_dropdown_Button.dart';
+import 'package:egytologia/common_components/custom_button.dart';
+import 'package:egytologia/common_components/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../constance.dart';
+
+import '../../public/constance.dart';
 
 
 
@@ -110,7 +110,8 @@ class _Chats_TourguideState extends State<Chats_Tourguide> {
                     return  Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
-                    onTap: ()=>Get.to(ChatsView()),
+
+                    onTap: ()=>  Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ChatsView())),
 
                         child: Container(
                           child: Row(

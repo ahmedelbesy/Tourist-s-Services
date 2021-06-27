@@ -1,7 +1,7 @@
-import 'package:egytologia/view/widgets/custom_text.dart';
+import 'package:egytologia/common_components/custom_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../constance.dart';
+import '../../public/constance.dart';
 
 
 class Notifications_TourGuide extends StatelessWidget {

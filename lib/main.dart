@@ -1,12 +1,25 @@
-import 'package:egytologia/view/control_view.dart';
-import 'package:egytologia/view/splash_view.dart';
+
+import 'package:bloc/bloc.dart';
+import 'package:egytologia/features/splash/splash_view.dart';
+import 'package:egytologia/routes/app_pages.dart';
+import 'package:egytologia/shared/local/chach_helper.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'core/networking/remote/network_util.dart';
+import 'routes/app_pages.dart';
+import 'routes/app_routes.dart';
+import 'shared/bloc_observer.dart';
 
-import 'helper/binding.dart';
 
-void main() {
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  NetworkUtil.internal();
+
+  await CacheHelper.init();
+  Bloc.observer = MyBlocObserver();
+
   runApp(MyApp());
 }
 
@@ -14,11 +27,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-theme: ThemeData(
+    return MaterialApp(
+      initialRoute: Routes.SPLASH_ROUTER,
+      onGenerateRoute: NamedNavigatorImpl.onGenerateRoute,
+      navigatorKey: NamedNavigatorImpl.navigatorState,
+
+      theme: ThemeData(
   fontFamily: 'Segoe.UI'
 ),
-      initialBinding: Binding(),
+
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(

@@ -1,29 +1,29 @@
-import 'package:egytologia/core/view_model/control_view_model.dart';
-import 'package:egytologia/view/auth/login_view.dart';
-import 'package:egytologia/view/place_view.dart';
-import 'package:egytologia/view/posts_view.dart';
-import 'package:egytologia/view/profile_view.dart';
-import 'package:egytologia/view/report_view.dart';
 
-import 'package:egytologia/view/restaurant_view.dart';
-import 'package:egytologia/view/settings_view.dart';
-import 'package:egytologia/view/tour_view.dart';
 
-import 'package:egytologia/view/transportation_view.dart';
-import 'package:egytologia/view/widgets/custom_drawer.dart';
+import 'package:egytologia/features/place/place_view.dart';
+import 'package:egytologia/features/posts/posts_view.dart';
+import 'package:egytologia/features/profile/profile_view.dart';
+import 'package:egytologia/features/report/report_view.dart';
 
-import 'package:egytologia/view/widgets/custom_text.dart';
-import 'package:egytologia/view/widgets/listview_category_view.dart';
-import 'package:egytologia/view/pharmacies_view.dart';
+import 'package:egytologia/features/restaurant/restaurant_view.dart';
+import 'package:egytologia/features/setting/settings_view.dart';
+import 'package:egytologia/features/tours/tour_view.dart';
+
+import 'package:egytologia/features/transportation/transportation_view.dart';
+import 'package:egytologia/common_components/custom_drawer.dart';
+
+import 'package:egytologia/common_components/custom_text.dart';
+import 'package:egytologia/common_components/listview_category_view.dart';
+import 'package:egytologia/features/pharmacies/pharmacies_view.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../constance.dart';
-import '../favorite_view.dart';
-import '../hotels_view.dart';
-import '../news_view.dart';
+
+import '../../public/constance.dart';
+import '../../features/favorite/favorite_view.dart';
+import '../../features/hotels/hotels_view.dart';
+import '../../features/news/news_view.dart';
 
 
 
@@ -39,9 +39,9 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
-    return GetBuilder<HomeViewModel>(
-      init: Get.find(),
-      builder: (controller) => Scaffold(
+    return
+
+      Scaffold(
           drawer: Drawer(
             child: Custom_Drawer(height),
           ),
@@ -120,7 +120,7 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
                 ],
               )
             ],
-          )),
+        ),
     );
   }
 
@@ -130,7 +130,7 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
       children: [
         GestureDetector(
           onTap: () {
-            Get.to(ToursScreen());
+      //      Get.to(ToursScreen());
           },
           child: ListViewCategory(
             text: "Tours",
@@ -142,7 +142,7 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
         ),
         GestureDetector(
           onTap: () {
-            Get.to(ToursScreen());
+          //  Get.to(ToursScreen());
           },
           child: ListViewCategory(
             text: "Daily",
@@ -167,20 +167,20 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
             image: "assets/icons/settings.png",
             name: "Settings",
             colortext: primaryColor,
-            onPressed: () => Get.to(SettingScreens()),
+          //  onPressed: () => Get.to(SettingScreens()),
           ),
           Custom_Drawer_Icons(
             image: "assets/icons/profile.png",
             name: "Profile",
             colortext: primaryColor,
-            onPressed: () => Get.to(ProfileScreen()),
+         //   onPressed: () => Get.to(ProfileScreen()),
           ),
           Custom_Drawer_Icons(
             image: "assets/icons/report.png",
             name: "Report",
             colortext: primaryColor,
             onPressed: () {
-              Get.to(ReportScreen());
+         //     Get.to(ReportScreen());
             },
           ),
           Container(
@@ -191,7 +191,7 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
           Custom_Drawer_Icons(
             image: "assets/icons/logout.png",
             name: "Log out",
-            onPressed: () => Get.to(LoginScreen()),
+         //   onPressed: () => Get.to(LoginScreen()),
             colortext: Color(0xFFFFA200),
           )
         ],
@@ -247,9 +247,9 @@ class _HomeView_TourGuideState extends State<HomeView_TourGuide> {
                   IconButton(
                       icon: Image.asset("assets/images/chat.png"),
                       onPressed: () {
-                        Get.to(PostScreen(
-                          name: name,
-                        ));
+                       // Get.to(PostScreen(
+                       //    name: name,
+                       //  ));
                       }),
                   IconButton(
                       icon: Image.asset("assets/icons/share.png"),
