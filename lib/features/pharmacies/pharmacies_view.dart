@@ -125,9 +125,9 @@ class PharmaciesScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: height * 0.20,
+            height: height * 0.19,
             decoration: BoxDecoration(
-                color: primaryColor,  borderRadius: BorderRadius.only(bottomRight: Radius.circular(20),bottomLeft: Radius.circular(20),),),
+                color: primaryColor,  borderRadius: BorderRadius.only(bottomRight: Radius.circular(40),bottomLeft: Radius.circular(40),),),
             child: Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: Row(

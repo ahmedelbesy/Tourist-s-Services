@@ -96,10 +96,17 @@ class NetworkUtil {
     final int statusCode = response.statusCode;
     if (statusCode >= 200 && statusCode < 300) {
       print("correrct request: " + response.toString());
-      return Mappable(responseType, response.toString()) as ResponseType;
+      if(responseType is ListMappable){
+        return Mappable(responseType, response.data) as ResponseType;
+
+      }
+      else{
+        return Mappable(responseType, response) as ResponseType;
+
+      }
     } else {
       print("request error: " + response.toString());
-      return Mappable(responseType, response.toString()) as ResponseType;
+      return Mappable(responseType, response) as ResponseType;
     }
   }
 }

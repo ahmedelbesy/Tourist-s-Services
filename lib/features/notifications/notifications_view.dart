@@ -12,8 +12,9 @@ class Notifications_View extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: height * 0.15),
+            padding: EdgeInsets.only(top: height * 0.13),
             child: ListView.builder(
+              padding: EdgeInsets.only(top: 60),
               itemBuilder: (ctx, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -82,12 +83,12 @@ class Notifications_View extends StatelessWidget {
             ),
           ),
           Container(
-            height: height * 0.20,
+            height: height * 0.19,
             decoration: BoxDecoration(
                 color: primaryColor,
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(40),
+                  bottomLeft: Radius.circular(40),
                 )),
             child: Padding(
               padding: const EdgeInsets.only(top: 50),

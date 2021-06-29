@@ -1,12 +1,15 @@
+import 'package:egytologia/core/model/model_news.dart';
+import 'package:egytologia/core/model/model_places.dart';
 import 'package:egytologia/public/constance.dart';
 import 'package:egytologia/common_components/custom_button.dart';
 import 'package:egytologia/common_components/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:egytologia/routes/app_pages.dart';
 
 class DetailsNewsScreen extends StatelessWidget {
-  String image;
-  DetailsNewsScreen({this.image});
+  final  ModelNews modelnews;
+  DetailsNewsScreen({this.modelnews});
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -20,13 +23,13 @@ class DetailsNewsScreen extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: height * 0.4,
-                  child: Image.asset(
-                    "$image",
+                  child: Image.network(
+                    "${modelnews.image}",
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: height * 0.05),
+                  padding: EdgeInsets.only(top: height * 0.09),
                   child: IconButton(
                       icon: Icon(
                         Icons.arrow_back,
@@ -37,22 +40,22 @@ class DetailsNewsScreen extends StatelessWidget {
                         Navigator.pop(context);
                       }),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: height * 0.09),
-                  child: CustomText(
-                    text: "New Hotel",
-                    alignment: Alignment.center,
-                    fontSize: 23,
-                    fontweight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.only(top: height * 0.09),
+                //   child: CustomText(
+                //     text: "${modelnews.title}",
+                //     alignment: Alignment.center,
+                //     fontSize: 23,
+                //     fontweight: FontWeight.bold,
+                //     color: Colors.white,
+                //   ),
+                // ),
                 Container(
                   // padding: EdgeInsets.only(top: 50),
                   margin: EdgeInsets.only(
                       top: height * 0.16,
-                      right: width * 0.07,
-                      left: width * 0.07),
+                      right: width * 0.1,
+                      left: width * 0.2),
                   child: Row(
                     children: [
                       Container(
@@ -61,19 +64,14 @@ class DetailsNewsScreen extends StatelessWidget {
                           width: width * 0.34,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(5),
-                              child: Image.asset(
-                                "$image",
+                              child: Image.network(
+                                "${modelnews.image}",
                                 fit: BoxFit.cover,
                               ))),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          CustomText(
-                            text: "New Hotels",
-                            color: primaryColor,
-                            fontweight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
+
                           Padding(
                             padding: EdgeInsets.only(right: width * 0.08),
                             child: Row(
@@ -90,34 +88,7 @@ class DetailsNewsScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
-                                CustomText(
-                                  text: " 4.9",
-                                  color: primaryColor,
-                                  fontweight: FontWeight.bold,
-                                )
-                              ],
-                            ),
-                          ),
+
                         ],
                       )
                     ],
@@ -163,8 +134,8 @@ class DetailsNewsScreen extends StatelessWidget {
 
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          "assets/images/room.png",
+                        child: Image.network(
+                          "${modelnews.image}",
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -191,7 +162,7 @@ class DetailsNewsScreen extends StatelessWidget {
                     ),
                     CustomText(
                       text:
-                          "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
+                          "${modelnews.description}",
                       color: primaryColor,
                       fontSize: 18,
                     ),
@@ -199,7 +170,7 @@ class DetailsNewsScreen extends StatelessWidget {
                       height: 10,
                     ),
                     CustomText(
-                      text: "Date: 5-12-2021 to 10-12-2021",
+                      text: "${modelnews.createdAt}",
                       fontweight: FontWeight.bold,
                       color: primaryColor,
                     ),
@@ -207,7 +178,7 @@ class DetailsNewsScreen extends StatelessWidget {
                       height: 10,
                     ),
                     CustomText(
-                      text: "Time: 12:00 PM",
+                      text: "${modelnews.updatedAt}",
                       fontweight: FontWeight.bold,
                       color: primaryColor,
                     ),

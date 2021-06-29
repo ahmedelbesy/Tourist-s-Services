@@ -1,30 +1,25 @@
-import 'package:egytologia/core/networking/remote/network_mappers.dart';
-
-class ModelPlace {
-  String location;
+class ModelNews {
   String sId;
   String image;
-  String name;
+  String title;
   String description;
   String createdAt;
   String updatedAt;
   int iV;
 
-  ModelPlace(
-      {this.location,
-        this.sId,
+  ModelNews(
+      {this.sId,
         this.image,
-        this.name,
+        this.title,
         this.description,
         this.createdAt,
         this.updatedAt,
         this.iV});
 
-  ModelPlace.fromJson(Map<String, dynamic> json) {
-    location = json['location'];
+  ModelNews.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     image = json['image'];
-    name = json['name'];
+    title = json['title'];
     description = json['description'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
@@ -33,16 +28,13 @@ class ModelPlace {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['location'] = this.location;
     data['_id'] = this.sId;
     data['image'] = this.image;
-    data['name'] = this.name;
+    data['title'] = this.title;
     data['description'] = this.description;
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
     data['__v'] = this.iV;
     return data;
   }
-
-  // s
 }

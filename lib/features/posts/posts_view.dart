@@ -16,7 +16,7 @@ class PostScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(height * 0.16),
+        preferredSize: Size.fromHeight(height * 0.13),
         child: Container(
           decoration: BoxDecoration(
             color: primaryColor,
@@ -33,7 +33,7 @@ class PostScreen extends StatelessWidget {
                     icon: IconButton(
                       icon: Icon(
                         Icons.arrow_back,
-                        size: 35,
+                        size: 30,
                         color: Colors.white,
                       ),
                     ),

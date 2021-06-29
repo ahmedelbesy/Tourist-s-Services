@@ -2,8 +2,8 @@ class Routes {
   static const SPLASH_ROUTER = "SPLASH_ROUTER";
   static const LOGIN_ROUTER = "LoginScreen";
   static const SIGNUP_ROUTER = "SIGNUP_ROUTER";
-  static const INTRO = "INTRO";
-  static const SEND_CODE = "SEND_CODE";
+  static const DITALIS_PLACE = "DITILS_PLACE";
+  static const DITALIS_NEW = "SEND_CODE";
   static const RESET_PASSWORD = "RESET_PASSWORD";
   static const LOG_IN = "LOG_IN";
   static const HOME_ROUTER = "HOME_ROUTER";

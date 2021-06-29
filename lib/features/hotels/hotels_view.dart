@@ -139,12 +139,12 @@ class HotelsScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: height * 0.20,
+            height: height * 0.19,
             decoration: BoxDecoration(
               color: primaryColor,
               borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(40),
+                bottomLeft: Radius.circular(40),
               ),
             ),
             child: Row(

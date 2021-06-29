@@ -13,7 +13,7 @@ class ReportScreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar:  PreferredSize(
-        preferredSize: Size.fromHeight(height * 0.12),
+        preferredSize: Size.fromHeight(height * 0.13),
         child: AppBar(
 
           automaticallyImplyLeading: false,

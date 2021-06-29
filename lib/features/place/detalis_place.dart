@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:egytologia/core/model/model_places.dart';
 import 'package:egytologia/public/constance.dart';
 import 'package:egytologia/common_components/Custom_dropdown_Button.dart';
 import 'package:egytologia/common_components/custom_button.dart';
@@ -10,9 +11,8 @@ import 'package:flutter/material.dart';
 
 
 class DetailsPlaceScreen extends StatefulWidget {
-  String image;
-  String name;
-  DetailsPlaceScreen({this.image,this.name});
+  final ModelPlace modelPlace;
+  DetailsPlaceScreen({this.modelPlace});
 
   @override
   _DetailsPlaceScreenState createState() => _DetailsPlaceScreenState();
@@ -40,8 +40,8 @@ class _DetailsPlaceScreenState extends State<DetailsPlaceScreen> {
                 Container(
                   width: double.infinity,
                   height: height * 0.4,
-                  child: Image.asset(
-                    "$images",
+                  child: Image.network(
+                    "${widget.modelPlace.image}",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -50,7 +50,7 @@ class _DetailsPlaceScreenState extends State<DetailsPlaceScreen> {
                   child: IconButton(
                       icon: Icon(
                         Icons.arrow_back,
-                        color: primaryColor,
+                        color: Colors.white,
                         size: 30,
                       ),
                       onPressed: () {
@@ -60,39 +60,39 @@ class _DetailsPlaceScreenState extends State<DetailsPlaceScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: height * 0.09),
                   child: CustomText(
-                    text: "${widget.name}",
+                    text: "${widget.modelPlace.name}",
                     alignment: Alignment.center,
                     fontSize: 23,
                     fontweight: FontWeight.bold,
-                    color: primaryColor,
+                    color: Colors.white,
                   ),
                 ),
                 Container(
                   // padding: EdgeInsets.only(top: 50),
                   margin: EdgeInsets.only(
                       top: height * 0.16,
-                      right: width * 0.07,
-                      left: width * 0.07),
+                      right: width * 0.05,
+                      left: width * 0.05),
                   child: Row(
                     children: [
                       Container(
-                          margin: EdgeInsets.only(left: 20, right: 7),
+                          margin: EdgeInsets.only(left: 20, right: 5),
                           height: height * 0.1,
-                          width: width * 0.34,
+                          width: width * 0.20,
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(5),
-                              child: Image.asset(
-                                "${widget.image}",
+                              child: Image.network(
+                                "${widget.modelPlace.image}",
                                 fit: BoxFit.cover,
                               ))),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CustomText(
-                            text: "${widget.name}",
+                            text: "${widget.modelPlace.name}",
                             color: primaryColor,
                             fontweight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                           Padding(
                             padding: EdgeInsets.only(right: width * 0.08),
@@ -103,7 +103,7 @@ class _DetailsPlaceScreenState extends State<DetailsPlaceScreen> {
                                   color: primaryColor,
                                 ),
                                 CustomText(
-                                  text: "Cairo ",
+                                  text: "${widget.modelPlace.location} ",
                                   color: primaryColor,
                                   fontSize: 20,
                                 ),
@@ -286,7 +286,7 @@ class _DetailsPlaceScreenState extends State<DetailsPlaceScreen> {
                       height: 10,
                     ),
                     CustomText(
-                      text:"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humourThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+                      text:"${widget.modelPlace.description} ",
 
                       color: primaryColor,
                       fontSize: 18,

@@ -2,7 +2,10 @@
 
 
 import 'package:egytologia/features/auth/login_view/login_view.dart';
+import 'package:egytologia/features/main/home_layout.dart';
 import 'package:egytologia/features/main/home_view.dart';
+import 'package:egytologia/features/news/details_news_view.dart';
+import 'package:egytologia/features/place/detalis_place.dart';
 import 'package:egytologia/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +21,9 @@ class NamedNavigatorImpl implements NamedNavigator {
     switch (settings.name) {
      case Routes.SPLASH_ROUTER :return MaterialPageRoute(builder: (_) => Splash());
      case Routes.LOGIN_ROUTER :return MaterialPageRoute(builder: (_) => LoginScreen());
-     case Routes.HOME_ROUTER :return MaterialPageRoute(builder: (_) => HomeView());
+     case Routes.HOME_ROUTER :return MaterialPageRoute(builder: (_) => HomeLayout());
+     case Routes.DITALIS_NEW :return MaterialPageRoute(builder: (_) => DetailsNewsScreen(modelnews: settings.arguments,));
+     case Routes.DITALIS_PLACE :return MaterialPageRoute(builder: (_) => DetailsPlaceScreen(modelPlace: settings.arguments,));
       // case Routes.SIGNUP_ROUTER :return MaterialPageRoute(builder: (_) => SignUpPage());
       // case Routes.RESET_PASSWORD :return MaterialPageRoute(builder: (_) => ResetPasswordPage());
       // case Routes.SEND_CODE :return MaterialPageRoute(builder: (_) => VerificationCodePage(stateOfCode: settings.arguments,));

@@ -8,14 +8,13 @@ abstract class RequestMappable {
 // Handler for the network's response.
 
 abstract class  Mappable<T>  {
-  factory Mappable(Mappable type, String data) {
+  factory Mappable(Mappable type, dynamic data) {
     if (type is BaseMappable) {
-      Map<String, dynamic> mappingData = json.decode(data);
+      Map<String, dynamic> mappingData = json.decode(data.toString());
 
       return type.fromJson(mappingData);
     } else if (type is ListMappable) {
-      Iterable iterableData = json.decode(data);
-      return type.fromJsonList(iterableData);
+      return type.fromJsonList(data as List);
     }
     return null;
   }

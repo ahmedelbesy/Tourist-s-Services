@@ -15,7 +15,7 @@ class SettingScreens extends StatelessWidget {
     return Scaffold(
 
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(height * 0.12),
+        preferredSize: Size.fromHeight(height * 0.13),
         child: AppBar(
 
           automaticallyImplyLeading: false,

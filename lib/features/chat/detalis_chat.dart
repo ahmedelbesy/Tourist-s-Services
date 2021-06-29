@@ -55,12 +55,13 @@ title:  Padding(
         ),
       ),
 
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+      body:Column(
+mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 10,right: 10,bottom: 30),
             child: CustomTextFormField(
+              isPassword: false,
               suffixIcon:Icon(Icons.send,color: primaryColor,),
               hint: "Type a message",
               fontSizehint: 20,

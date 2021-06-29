@@ -12,7 +12,7 @@ class Chats_view extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(height * 0.14),
+        preferredSize: Size.fromHeight(height * 0.13),
         child: AppBar(
           automaticallyImplyLeading: false,
           title: Padding(
@@ -22,7 +22,7 @@ class Chats_view extends StatelessWidget {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.transparent,
-                  radius: 25,
+                  radius: 20,
                   child: Image.asset(
                     "assets/images/avatar.png",
                     fit: BoxFit.cover,
@@ -71,7 +71,7 @@ class Chats_view extends StatelessWidget {
                     return  Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
-                   //     onTap: ()=>Get.to(ChatsView()),
+                  onTap:()=> Navigator.push(context,MaterialPageRoute(builder: (ctx)=>ChatsView())),
 
                         child: Container(
                           child: Row(
