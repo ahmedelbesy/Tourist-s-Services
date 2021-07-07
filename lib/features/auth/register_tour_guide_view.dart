@@ -55,6 +55,7 @@ class _Register_TourGuide_ScreenState extends State<Register_TourGuide_Screen> {
                         children: [
 
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.email,color: primaryColor,),
                             hint: "E-MAIL",
                             onSave: (value) {},
@@ -64,6 +65,7 @@ class _Register_TourGuide_ScreenState extends State<Register_TourGuide_Screen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.person,color: primaryColor,),
                             hint: "User Name",
                             onSave: (value) {},
@@ -73,6 +75,7 @@ class _Register_TourGuide_ScreenState extends State<Register_TourGuide_Screen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.phone,color: primaryColor,),
                             hint: "Phone",
                             onSave: (value) {},
@@ -82,6 +85,7 @@ class _Register_TourGuide_ScreenState extends State<Register_TourGuide_Screen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: true,
                             icon: Icon(Icons.lock,color: primaryColor),
                             hint: "Password",
                             onSave: (value) {},
@@ -91,6 +95,7 @@ class _Register_TourGuide_ScreenState extends State<Register_TourGuide_Screen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.person_pin_sharp,color: primaryColor),
                             hint: "ID OF Tourist License",
                             onSave: (value) {},

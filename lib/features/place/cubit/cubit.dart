@@ -39,7 +39,7 @@ PlacesResponse placesResponse;
         emit(EgytologiaPlaceErrorState(error.toString()));
       });
     }catch(e){
-      print("zeby${e.toString()}");
+
     }
 
 

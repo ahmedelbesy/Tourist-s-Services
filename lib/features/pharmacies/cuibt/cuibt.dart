@@ -43,7 +43,7 @@ class PharmaciesCubit extends Cubit<PharmaciesStates> {
         emit(PharmaciesErrorState(error.toString()));
       });
     }catch(e){
-      print("zeby${e.toString()}");
+
     }
 
 

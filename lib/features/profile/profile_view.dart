@@ -1,7 +1,12 @@
+import 'package:conditional_builder/conditional_builder.dart';
+import 'package:egytologia/core/model/response/response_profile.dart';
+import 'package:egytologia/features/profile/cubit/cubit.dart';
+import 'package:egytologia/features/profile/cubit/state.dart';
 import 'package:egytologia/public/constance.dart';
 import 'package:egytologia/features/posts/posts_view.dart';
 import 'package:egytologia/common_components/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -19,73 +24,97 @@ class ProfileScreen extends StatelessWidget {
         
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Center(
-            child: Image.asset("assets/images/profilee.png"),
-          ),
-          CustomText(text: "$name",alignment: Alignment.center,fontSize: 20,color: primaryColor,fontweight: FontWeight.bold,),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
+      body: BlocProvider(
+        create: (BuildContext context) =>ProfileCubit()..getProfiledData(),
+        child: BlocConsumer<ProfileCubit,ProfileStates>(
 
-              children: [
-                Icon(Icons.add_location,color: primaryColor,),
-                CustomText(text:"From: Egypt" ,color: primaryColor,fontSize: 18,fontweight: FontWeight.bold,)
-              ],
-            ),
+        listener: (context, state) {},
+    builder: (context, state) {
 
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
+      var model =ProfileCubit.get(context).profileResponse ;
+      return ConditionalBuilder(
+          condition: model != null ?? null,
 
-              children: [
-                Icon(Icons.language_outlined,color: primaryColor,),
-                CustomText(text:" Language: English" ,color: primaryColor,fontSize: 18,fontweight: FontWeight.bold,)
-              ],
-            ),
-
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-
-              children: [
-                Icon(Icons.phone,color: primaryColor,),
-                CustomText(text:" Phone: 012234567892" ,color: primaryColor,fontSize: 18,fontweight: FontWeight.bold,)
-              ],
-            ),
-
-          ),
-
-          Container(
-
-            height:80,
-            padding: EdgeInsets.only(left: 10,right: 10),
-            margin: EdgeInsets.only(left: 20,right: 20,top: 20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              border: Border.all(color: Colors.grey.shade300,width: 3),
+          builder: (context) => ProfileView(
+              ProfileCubit.get(context).profileResponse,width , height, context),
+          fallback: (context) => Center(
+            child: CircularProgressIndicator(),
+          ));
 
 
-            ),
-            child: Column(
-              children: [
-                CustomText(text: "Post",color: primaryColor,fontweight: FontWeight.bold,fontSize: 18,),
-                Row(
-                  children: [
-                    Image.asset("assets/images/avatar.png"),
-                    CustomText(text: "What's on your mind",color: Colors.grey.shade500,)
-                  ],
-                )
-              ],
-            ),
-          ),
-          Posts(height,width),
+    },
 
-        ],
+        ),
       ),
+    );
+  }
+  Widget ProfileView( ProfileResponse data,double width,double height, BuildContext context){
+    return Column(
+      children: [
+        Center(
+          child: Image.network("${data.data[0].avatar}"),
+        ),
+        CustomText(text: "$name",alignment: Alignment.center,fontSize: 20,color: primaryColor,fontweight: FontWeight.bold,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+
+            children: [
+              Icon(Icons.add_location,color: primaryColor,),
+              CustomText(text:"From: Egypt" ,color: primaryColor,fontSize: 18,fontweight: FontWeight.bold,)
+            ],
+          ),
+
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+
+            children: [
+              Icon(Icons.language_outlined,color: primaryColor,),
+              CustomText(text:" Language: English" ,color: primaryColor,fontSize: 18,fontweight: FontWeight.bold,)
+            ],
+          ),
+
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+
+            children: [
+              Icon(Icons.phone,color: primaryColor,),
+              CustomText(text:" Phone: 012234567892" ,color: primaryColor,fontSize: 18,fontweight: FontWeight.bold,)
+            ],
+          ),
+
+        ),
+
+        Container(
+
+          height:80,
+          padding: EdgeInsets.only(left: 10,right: 10),
+          margin: EdgeInsets.only(left: 20,right: 20,top: 20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: Colors.grey.shade300,width: 3),
+
+
+          ),
+          child: Column(
+            children: [
+              CustomText(text: "Post",color: primaryColor,fontweight: FontWeight.bold,fontSize: 18,),
+              Row(
+                children: [
+                  Image.asset("assets/images/avatar.png"),
+                  CustomText(text: "What's on your mind",color: Colors.grey.shade500,)
+                ],
+              )
+            ],
+          ),
+        ),
+        Posts(height,width),
+
+      ],
     );
   }
   Widget Posts(double height, double width) {

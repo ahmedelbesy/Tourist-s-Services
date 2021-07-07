@@ -6,3 +6,4 @@ const PHARMACIES='pharmacies';
 const Restaurants='restaurants';
 const POSTS='posts';
 const HOTELS='hotels';
+const PROFILE='users/me';

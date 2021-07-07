@@ -57,6 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         children: [
 
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.email,color: primaryColor,),
                             hint: "E-MAIL",
                             onSave: (value) {},
@@ -66,6 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.person,color: primaryColor,),
                             hint: "User Name",
                             onSave: (value) {},
@@ -75,6 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.phone,color: primaryColor,),
                             hint: "Phone",
                             onSave: (value) {},
@@ -84,6 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: true,
                             icon: Icon(Icons.lock,color: primaryColor),
                             hint: "Password",
                             onSave: (value) {},
@@ -93,6 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             height: height * 0.01,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.location_city,color: primaryColor),
                             hint: "Country",
                             onSave: (value) {},
@@ -102,6 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             height: 10,
                           ),
                           CustomTextFormField(
+                            isPassword: false,
                             icon: Icon(Icons.language_outlined,color: primaryColor,),
                             hint: "Language",
                             onSave: (value) {},
