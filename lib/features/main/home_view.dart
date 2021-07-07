@@ -1,5 +1,9 @@
 
+import 'package:conditional_builder/conditional_builder.dart';
+import 'package:egytologia/core/model/response/posts_response.dart';
 import 'package:egytologia/features/auth/login_view/login_view.dart';
+import 'package:egytologia/features/main/cuibt/cuibt.dart';
+import 'package:egytologia/features/main/cuibt/state.dart';
 import 'package:egytologia/features/place/place_view.dart';
 import 'package:egytologia/features/posts/posts_view.dart';
 import 'package:egytologia/routes/app_pages.dart';
@@ -21,6 +25,7 @@ import 'package:egytologia/shared/local/chach_helper.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 import '../../public/constance.dart';
@@ -105,29 +110,48 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           backgroundColor: Colors.white,
-          body: ListView(
-            children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 25,
-                  ),
-                  _searchTextFormField(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: height * 0.2,
-                    child: Categorys(),
-                  ),
-                  Posts(height, width),
-                ],
-              )
-            ],
+          body: BlocProvider(
+            create: (BuildContext context) =>PostsCubit()..getPostsdData(),
+            child: BlocConsumer<PostsCubit,PostsStates>(
+              listener: (context, state) {},
+              builder: (context, state){
+                var model =PostsCubit.get(context).postsResponse ;
+                return ConditionalBuilder(
+                    condition: model != null ?? null,
+
+                    builder: (context) => HomePage(
+                        PostsCubit.get(context).postsResponse , height, width,context),
+                    fallback: (context) => Center(
+                      child: CircularProgressIndicator(),
+                    ));
+              } ,
+
+            ),
           ),
     );
   }
-
+Widget HomePage(PostsResponse data,double height,width, BuildContext context){
+    return ListView(
+      children: [
+        Column(
+          children: [
+            SizedBox(
+              height: 25,
+            ),
+            _searchTextFormField(),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: height * 0.2,
+              child: Categorys(),
+            ),
+            Posts(data,height, width),
+          ],
+        )
+      ],
+    );
+}
   Widget Categorys() {
     return ListView(
       scrollDirection: Axis.horizontal,
@@ -283,7 +307,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget Posts(double height, double width) {
+  Widget Posts(PostsResponse data, double height, double width) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
       child: Container(
@@ -295,18 +319,27 @@ class _HomeViewState extends State<HomeView> {
                   const EdgeInsets.only(left: 12, right: 12, top: 5, bottom: 5),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    child: Image.asset(
-                      "assets/images/avatar.png",
-                      fit: BoxFit.cover,
+                  Container(
+
+                    margin: EdgeInsets.all(6.0),
+                    decoration: BoxDecoration(
+
+                      borderRadius: BorderRadius.circular(20.0),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                           "${data.data[0].owner.avatar}"),
+                        fit: BoxFit.cover,
+                      ),
+
                     ),
-                    backgroundColor: Colors.white,
+                    height: 30,
+                    width: 30,
                   ),
                   SizedBox(
                     width: 10,
                   ),
                   CustomText(
-                    text: "$name",
+                    text: "${data.data[0].owner.name}",
                     fontweight: FontWeight.bold,
                     fontSize: 20,
                     color: primaryColor,
@@ -315,12 +348,22 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
             Container(
-                height: height * 0.23,
-                width: width * 0.8,
-                child: Image.asset(
-                  "assets/images/post.png",
+
+              margin: EdgeInsets.all(6.0),
+              decoration: BoxDecoration(
+
+                borderRadius: BorderRadius.circular(10.0),
+                image: DecorationImage(
+                  image: NetworkImage(
+                      "${data.data[0].image}"),
                   fit: BoxFit.cover,
-                )),
+                ),
+
+              ),
+              height: height * 0.23,
+              width: width * 0.8,
+            ),
+
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Row(
@@ -356,7 +399,7 @@ class _HomeViewState extends State<HomeView> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
                     child: CustomText(
-                      text: "Liked by Nour Ashref and 121 others",
+                      text: "Liked by BCE and ${data.data[0].likes} others",
                       color: primaryColor,
                       fontweight: FontWeight.bold,
                     ),

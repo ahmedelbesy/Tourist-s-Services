@@ -1,5 +1,5 @@
 import 'package:conditional_builder/conditional_builder.dart';
-import 'package:egytologia/core/model/news_response.dart';
+import 'package:egytologia/core/model/response/news_response.dart';
 import 'package:egytologia/features/news/cuibt/cuibt.dart';
 import 'package:egytologia/features/news/cuibt/state.dart';
 import 'package:egytologia/features/transportation/transportation_view.dart';

@@ -109,4 +109,36 @@ class NetworkUtil {
       return Mappable(responseType, response) as ResponseType;
     }
   }
+  //
+  // Future<ResponseType> request<ResponseType extends Mappable> (
+  //     ResponseType responseType, String url,
+  //     {bool headers = false, var body, encoding , String method}
+  //
+  //     ) async {
+  //   var response;
+  //   dio.options.baseUrl=base_url;
+  //   dio.options.method=method;
+  //   try {
+  //     if(headers){
+  //       dio.options.headers = {
+  //         //    "lang":AppLocalization.localeNow.toString(),
+  //         "Accept": "application/json",
+  //         "Content-Type": "application/json",
+  //         //   'Authorization': 'Bearer ${await preferenceManager.readString(CachingKey.AUTH_TOKEN)}',
+  //       };
+  //     }
+  //     response = await dio.request(url,
+  //         data: body,
+  //         options: Options(requestEncoder: encoding));
+  //   } on DioError catch (e) {
+  //     if (e.response != null) {
+  //       response = e.response;
+  //     }
+  //   }
+  //   return handleResponse(response,responseType );
+
+
+
+
+
 }

@@ -1,11 +1,15 @@
+import 'package:egytologia/core/model/model_hotel.dart';
+import 'package:egytologia/core/model/model_hotel.dart';
+
 import 'package:egytologia/public/constance.dart';
 import 'package:egytologia/common_components/custom_button.dart';
 import 'package:egytologia/common_components/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class DetailsHotels extends StatelessWidget {
-  String image;
-  DetailsHotels({this.image});
+
+final ModelHotel modelHotel;
+  DetailsHotels({this.modelHotel});
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -17,8 +21,8 @@ class DetailsHotels extends StatelessWidget {
             Container(
               width: double.infinity,
               height: height * 0.4,
-              child: Image.asset(
-                "$image",
+              child: Image.network(
+                "${modelHotel.image}",
                 fit: BoxFit.cover,
               ),
             ),
@@ -48,7 +52,7 @@ class DetailsHotels extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          text: "Aston Hotel Room",
+                          text: "${modelHotel.name}",
                           color: primaryColor,
                           fontSize: 18,
                           fontweight: FontWeight.bold,
@@ -70,7 +74,7 @@ class DetailsHotels extends StatelessWidget {
                           color: primaryColor,
                         ),
                         CustomText(
-                          text: "Cairo ",
+                          text: "${modelHotel.location} ",
                           color: primaryColor,
                           fontSize: 20,
                         )

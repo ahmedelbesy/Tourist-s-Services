@@ -2,10 +2,14 @@
 
 
 import 'package:egytologia/features/auth/login_view/login_view.dart';
+import 'package:egytologia/features/hotels/details_hotels_view.dart';
+import 'package:egytologia/features/hotels/hotels_view.dart';
 import 'package:egytologia/features/main/home_layout.dart';
-import 'package:egytologia/features/main/home_view.dart';
+
 import 'package:egytologia/features/news/details_news_view.dart';
+import 'package:egytologia/features/pharmacies/pharmacies_view.dart';
 import 'package:egytologia/features/place/detalis_place.dart';
+import 'package:egytologia/features/posts/posts_view.dart';
 import 'package:egytologia/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -24,17 +28,11 @@ class NamedNavigatorImpl implements NamedNavigator {
      case Routes.HOME_ROUTER :return MaterialPageRoute(builder: (_) => HomeLayout());
      case Routes.DITALIS_NEW :return MaterialPageRoute(builder: (_) => DetailsNewsScreen(modelnews: settings.arguments,));
      case Routes.DITALIS_PLACE :return MaterialPageRoute(builder: (_) => DetailsPlaceScreen(modelPlace: settings.arguments,));
-      // case Routes.SIGNUP_ROUTER :return MaterialPageRoute(builder: (_) => SignUpPage());
-      // case Routes.RESET_PASSWORD :return MaterialPageRoute(builder: (_) => ResetPasswordPage());
-      // case Routes.SEND_CODE :return MaterialPageRoute(builder: (_) => VerificationCodePage(stateOfCode: settings.arguments,));
-      // case Routes.ENTER_EMAIL :return MaterialPageRoute(builder: (_) => EnterEmail());
-      // case Routes.HOME_ROUTER :return MaterialPageRoute(builder: (_) => Home());
-      // case Routes.POST_DETAILS_PAGE_ROUTER :return MaterialPageRoute(builder: (_) => PostDetails(postId: settings.arguments,));
-      // case Routes.HASH_TAG_POSTS_PAGE_ROUTER :return MaterialPageRoute(builder: (_) => HashTagPosts(hashtag: settings.arguments,));
-      // case Routes.ABOUT_APP_PAGE_ROUTER :return MaterialPageRoute(builder: (_) => AboutAppPage());
-      // case Routes.CONTACT_US_PAGE_ROUTER :return MaterialPageRoute(builder: (_) => ContactUsPage());
-      // case Routes.CHANGE_LANG_PAGE_ROUTER :return MaterialPageRoute(builder: (_) => ChangeLanguagePage());
-      // case Routes.EULA_PAGE_ROUTER :return MaterialPageRoute(builder: (_) => EULAPage());
+     case Routes.Hotel_DITALS_ROUTER :return MaterialPageRoute(builder: (_) => DetailsHotels(modelHotel: settings.arguments,));
+     case Routes.Hotel_ROUTER :return MaterialPageRoute(builder: (_) => HotelsScreen());
+     case Routes.Posts_ROUTER :return MaterialPageRoute(builder: (_) => PostScreen());
+     case Routes.PHARMACY_ROUTER :return MaterialPageRoute(builder: (_) => PharmaciesScreen());
+
     }
 
 //    return MaterialPageRoute(builder: (_) => Container());

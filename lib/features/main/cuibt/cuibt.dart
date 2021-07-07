@@ -5,8 +5,10 @@ import 'package:egytologia/core/model/model_places.dart';
 import 'package:egytologia/core/model/model_user_login.dart';
 import 'package:egytologia/core/model/response/news_response.dart';
 import 'package:egytologia/core/model/response/places_response.dart';
+import 'package:egytologia/core/model/response/posts_response.dart';
 import 'package:egytologia/core/networking/end_points.dart';
 import 'package:egytologia/core/networking/remote/network_util.dart';
+import 'package:egytologia/features/main/cuibt/state.dart';
 import 'package:egytologia/features/news/cuibt/state.dart';
 import 'package:egytologia/features/place/cubit/state.dart';
 import 'package:egytologia/shared/local/chach_helper.dart';
@@ -14,31 +16,31 @@ import 'package:egytologia/shared/local/chach_helper.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NewsCubit extends Cubit<NewsStates> {
-  NewsCubit() : super(NewsInitialState());
-  static NewsCubit get(context) => BlocProvider.of(context);
-  NewsResponse newsResponse;
-  Future<void> getNewsdData() async {
+class PostsCubit extends Cubit<PostsStates> {
+  PostsCubit() : super(PostsInitialState());
+  static PostsCubit get(context) => BlocProvider.of(context);
+  PostsResponse postsResponse ;
+  Future<void> getPostsdData() async {
 
 
-    emit(NewsLoadingState());
+    emit(PostsLoadingState());
 
 
 
     try {
 
-      NetworkUtil.internal().get(NewsResponse(), NEWS, headers: true,
+      NetworkUtil.internal().get(PostsResponse(), POSTS, headers: true,
 
 
       ).then((value) {
 
-        newsResponse = value;
+        postsResponse = value;
         print(value.data.length);
 
-        emit(NewsSuccessState());
+        emit(PostsSuccessState());
       }).catchError((error) {
         print(error.toString());
-        emit(NewsErrorState(error.toString()));
+        emit(PostsErrorState(error.toString()));
       });
     }catch(e){
 
@@ -50,7 +52,7 @@ class NewsCubit extends Cubit<NewsStates> {
 
     //   DioHelper.getData(url: PLACES, token:CacheHelper.getData(key: "token"))
     //       .then((value) {
-    //     elshaimaModel = NewsModel.fromJson(value.data);
+    //     elshaimaModel = PostsModel.fromJson(value.data);
     //
     //     print(value.data);
     //

@@ -57,22 +57,23 @@ class _HomeLayoutState extends State<HomeLayout> {
         child: screens.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
 
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.red,
+          //  backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
             label: 'Notifications',
-            backgroundColor: Colors.green,
+         //   backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: 'Chat',
-            backgroundColor: Colors.purple,
+          //  backgroundColor: Colors.purple,
           ),
 
         ],

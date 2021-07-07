@@ -1,7 +1,7 @@
 
 
 import 'package:egytologia/core/model/model_places.dart';
-import 'package:egytologia/core/model/places_response.dart';
+import 'package:egytologia/core/model/response/places_response.dart';
 
 abstract class EgytologiaPlaceStates {}
 

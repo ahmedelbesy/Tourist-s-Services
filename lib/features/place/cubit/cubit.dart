@@ -3,7 +3,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:egytologia/core/model/model_places.dart';
 import 'package:egytologia/core/model/model_user_login.dart';
-import 'package:egytologia/core/model/places_response.dart';
+import 'package:egytologia/core/model/response/places_response.dart';
 import 'package:egytologia/core/networking/end_points.dart';
 import 'package:egytologia/core/networking/remote/network_util.dart';
 import 'package:egytologia/features/place/cubit/state.dart';
